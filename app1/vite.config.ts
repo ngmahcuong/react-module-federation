@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [
@@ -24,5 +24,4 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false,
   },
-  publicDir: "src/build/Build", // Đảm bảo rằng thư mục build của Unity được phục vụ công khai
 });
