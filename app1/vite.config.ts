@@ -9,11 +9,8 @@ export default defineConfig({
       name: "remote_app",
       filename: "remoteEntry.js",
       exposes: {
-        "./App": "./src/App.tsx", // Expose toàn bộ ứng dụng React
+        "./web-components": "./src/main.tsx",
       },
-      // exposes: {
-      //   "./web-components": "./src/index.tsx",
-      // },
       shared: ["react", "react-dom"], // cái này khi nào đóng vào web components thì bỏ vì tất cả đều là web compoennts hết
     }),
   ],

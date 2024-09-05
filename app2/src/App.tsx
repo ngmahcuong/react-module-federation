@@ -1,22 +1,19 @@
-import { useState, Suspense, lazy } from "react";
+import { useState, Suspense, lazy, useEffect } from "react";
 import "./App.css";
 
-const loadRemoteApp = async () => {
-  try {
-    const module = await import("remoteApp/App");
-    // const module = await import("remoteApp/web-components");
-    return module;
-  } catch (error) {
-    console.error("Failed to load remote module:", error);
-    // Return a fallback component in case of error
-    return { default: () => <div>Failed to load remote application.</div> };
-  }
-};
-
-const RemoteApp = lazy(loadRemoteApp);
+const RemoteApp = lazy(() => import("remoteApp/web-components"));
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    import("remoteApp/web-components").then(() => {
+      setTimeout(() => {
+        const remoteAppElement = document.querySelector("remote-app");
+        console.log("remote-app element is in the DOM", remoteAppElement);
+      }, 1 * 1000);
+    });
+  }, []);
 
   return (
     <div className="App">

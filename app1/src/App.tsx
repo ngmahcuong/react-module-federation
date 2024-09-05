@@ -19,7 +19,7 @@ function App() {
       "hello unity are you there?"
     );
   }
-  // Lắng nghe sự kiện từ Host App và gửi tin nhắn đến Unity
+  
   useEffect(() => {
     const handleHostAppMessage = (event: MessageEvent) => {
       if (
